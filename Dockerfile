@@ -144,6 +144,7 @@ USER guacd
 
 # Expose the default listener port
 EXPOSE 4822
+EXPOSE 22
 
 # Start guacd, listening on port 0.0.0.0:4822
 #
