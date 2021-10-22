@@ -141,7 +141,7 @@ ARG GID=1000
 RUN groupadd --gid $GID guacd
 RUN useradd --system --create-home --shell /usr/sbin/nologin --uid $UID --gid $GID guacd
 RUN useradd -d /home/vimuser -s /bin/bash -p guacamole vimuser
-RUN touch /usr/local/guacamole/user-mapping.xml
+RUN wget https://raw.githubusercontent.com/Vinz2008/guacamole-vim/main/user-mapping.xml /usr/local/guacamole/
 
 # Run with user guacd
 USER guacd
