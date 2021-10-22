@@ -134,6 +134,7 @@ ARG UID=1000
 ARG GID=1000
 RUN groupadd --gid $GID guacd
 RUN useradd --system --create-home --shell /usr/sbin/nologin --uid $UID --gid $GID guacd
+RUN useradd -d /home/vimuser -s /bin/bash -p guacamole vimuser
 
 # Run with user guacd
 USER guacd
