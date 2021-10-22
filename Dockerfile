@@ -51,11 +51,13 @@ ARG BUILD_DEPENDENCIES="              \
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Bring build environment up to date and install build dependencies
-RUN apt-get install openssh-server \
+RUN apt-get update 
+
+RUN apt-get install -y openssh-server \
     && rm -rf /var/lib/apt/lists/* 
-RUN  apt-get update \
-     && apt-get install -y wget \
-     && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+    && apt-get install -y wget \
+    && rm -rf /var/lib/apt/lists/*
   
 RUN apt-get update                                              && \
     apt-get install -t ${DEBIAN_RELEASE} -y $BUILD_DEPENDENCIES && \
