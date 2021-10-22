@@ -147,11 +147,11 @@ RUN useradd -d /home/vimuser -s /bin/bash -p guacamole vimuser
 RUN apt-get update \
     && apt-get install -y wget \
     && rm -rf /var/lib/apt/lists/*
-RUN wget https://raw.githubusercontent.com/Vinz2008/guacamole-vim/main/user-mapping.xml /usr/local/guacamole/
+RUN wget https://raw.githubusercontent.com/Vinz2008/guacamole-vim/main/user-mapping.xml /tmp
 
 # Run with user guacd
 USER guacd
-
+RUN cp -r /tmp/user-mapping.xml /usr/local/guacamole/
 # Expose the default listener port
 EXPOSE 4822
 EXPOSE 22
